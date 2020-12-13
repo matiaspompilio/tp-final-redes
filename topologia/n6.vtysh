@@ -38,8 +38,11 @@ router bgp 64450
   neighbor 10.0.12.2 route-map n8 out
  exit-address-family
 !
-route-map n7 permit 64449
+route-map n7 permit 10
  set metric 0
+!
+route-map n7 permit 64449
+ set metric 10
 !
 route-map n7-in permit 10
  set metric 0

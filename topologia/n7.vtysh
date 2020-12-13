@@ -23,7 +23,11 @@ router bgp 64449
  !
  address-family ipv4 unicast
   network 10.0.15.0/24
+  neighbor 10.0.11.1 route-map n6 out
  exit-address-family
+!
+route-map n6 permit 10
+ set metric 10
 !
 line vty
 !
