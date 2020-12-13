@@ -1,0 +1,29 @@
+!
+frr version 7.3
+frr defaults traditional
+hostname n29
+log syslog informational
+service integrated-vtysh-config
+!
+interface eth0
+ ip address 10.0.20.2/24
+!
+interface eth1
+ ip address 10.0.22.2/24
+!
+interface eth2
+ ip address 10.0.30.1/29
+!
+interface eth3
+ ip address 10.0.31.1/29
+!
+router bgp 29
+ bgp router-id 10.0.20.2
+ !
+ address-family ipv4 unicast
+  redistribute connected
+ exit-address-family
+!
+line vty
+!
+end

@@ -1,0 +1,30 @@
+!
+frr version 7.3
+frr defaults traditional
+hostname n7
+log syslog informational
+service integrated-vtysh-config
+!
+interface eth0
+ ip address 10.0.11.2/24
+!
+interface eth1
+ ip address 10.0.13.2/24
+!
+interface eth2
+ ip address 10.0.15.2/24
+!
+interface eth3
+ ip address 10.0.20.1/24
+!
+router bgp 64449
+ neighbor 10.0.11.1 remote-as 64450
+ neighbor 10.0.13.1 remote-as 64449
+ !
+ address-family ipv4 unicast
+  network 10.0.15.0/24
+ exit-address-family
+!
+line vty
+!
+end

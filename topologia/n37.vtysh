@@ -1,0 +1,26 @@
+!
+frr version 7.3
+frr defaults traditional
+hostname n37
+log syslog informational
+service integrated-vtysh-config
+!
+interface eth0
+ ip address 10.0.26.2/24
+!
+interface eth1
+ ip address 10.0.25.1/24
+!
+interface eth2
+ ip address 10.0.27.2/24
+!
+router bgp 37
+ bgp router-id 10.0.26.2
+ !
+ address-family ipv4 unicast
+  redistribute connected
+ exit-address-family
+!
+line vty
+!
+end

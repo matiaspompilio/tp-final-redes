@@ -1,0 +1,31 @@
+!
+frr version 7.3
+frr defaults traditional
+hostname n46
+log syslog informational
+service integrated-vtysh-config
+!
+interface eth0
+ ip address 10.0.50.2/24
+!
+interface eth1
+ ip address 10.0.51.1/24
+!
+interface eth2
+ ip address 10.0.7.1/24
+!
+router-id 10.0.50.2
+!
+router bgp 65032
+ neighbor 10.0.50.1 remote-as 65032
+ neighbor 10.0.51.2 remote-as 65032
+!
+router ospf
+ ospf router-id 10.0.50.2
+ network 10.0.7.0/24 area 0
+ network 10.0.50.0/24 area 0
+ network 10.0.51.0/24 area 0
+!
+line vty
+!
+end

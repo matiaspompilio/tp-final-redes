@@ -1,0 +1,26 @@
+!
+frr version 7.3
+frr defaults traditional
+hostname n35
+log syslog informational
+service integrated-vtysh-config
+!
+interface eth0
+ ip address 10.0.22.1/24
+!
+interface eth1
+ ip address 10.0.24.1/24
+!
+interface eth2
+ ip address 10.0.25.2/24
+!
+router bgp 35
+ bgp router-id 10.0.22.1
+ !
+ address-family ipv4 unicast
+  redistribute connected
+ exit-address-family
+!
+line vty
+!
+end

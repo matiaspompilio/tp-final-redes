@@ -1,0 +1,58 @@
+!
+frr version 7.3
+frr defaults traditional
+hostname n6
+log syslog informational
+service integrated-vtysh-config
+!
+interface eth0
+ ip address 10.0.4.2/24
+!
+interface eth1
+ ip address 10.0.5.2/24
+!
+interface eth2
+ ip address 10.0.10.1/24
+!
+interface eth3
+ ip address 10.0.11.1/24
+!
+interface eth4
+ ip address 10.0.12.1/24
+!
+interface eth5
+ ip address 10.0.17.1/24
+!
+router bgp 64450
+ neighbor 10.0.4.1 remote-as 65530
+ neighbor 10.0.5.1 remote-as 65032
+ neighbor 10.0.11.2 remote-as 64449
+ neighbor 10.0.12.2 remote-as 64449
+ neighbor 10.0.17.2 remote-as 64448
+ !
+ address-family ipv4 unicast
+  network 10.0.10.0/24
+  neighbor 10.0.11.2 route-map n7-in in
+  neighbor 10.0.11.2 route-map n7 out
+  neighbor 10.0.12.2 route-map n8-in in
+  neighbor 10.0.12.2 route-map n8 out
+ exit-address-family
+!
+route-map n7 permit 64449
+ set metric 0
+!
+route-map n7-in permit 10
+ set metric 0
+!
+route-map n8 permit 64449
+ set metric 1000
+!
+route-map n8-in permit 10
+ set metric 1000
+!
+route-map n8-in permit 64450
+ set metric 1000
+!
+line vty
+!
+end
