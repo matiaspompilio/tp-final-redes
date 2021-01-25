@@ -24,6 +24,7 @@ router bgp 64449
  !
  address-family ipv4 unicast
   network 10.0.15.0/24
+  network 192.168.101.0/24
  exit-address-family
 !
 line vty
