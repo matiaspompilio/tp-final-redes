@@ -20,7 +20,15 @@ router bgp 64448
  !
  address-family ipv4 unicast
   network 10.0.28.0/24
+  neighbor 10.0.17.1 route-map localonly out
+  neighbor 10.0.52.2 route-map localonly out
  exit-address-family
+!
+bgp as-path access-list 3 deny .*
+bgp as-path access-list 3 permit ^$
+!
+route-map localonly permit 10
+ match as-path 3
 !
 line vty
 !
