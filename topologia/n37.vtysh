@@ -14,12 +14,10 @@ interface eth1
 interface eth2
  ip address 10.0.27.2/24
 !
-router bgp 37
- bgp router-id 10.0.26.2
- !
- address-family ipv4 unicast
-  redistribute connected
- exit-address-family
+router bgp 64444
+ neighbor 10.0.25.2 remote-as 64444
+ neighbor 10.0.26.1 remote-as 64444
+ neighbor 10.0.27.1 remote-as 65032
 !
 line vty
 !

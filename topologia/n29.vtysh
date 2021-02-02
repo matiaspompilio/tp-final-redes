@@ -17,11 +17,13 @@ interface eth2
 interface eth3
  ip address 10.0.31.1/29
 !
-router bgp 29
- bgp router-id 10.0.20.2
+router bgp 64446
+ neighbor 10.0.20.1 remote-as 64449
+ neighbor 10.0.22.1 remote-as 64444
+ neighbor 10.0.31.2 remote-as 64445
  !
  address-family ipv4 unicast
-  redistribute connected
+  network 10.0.30.0/29
  exit-address-family
 !
 line vty
