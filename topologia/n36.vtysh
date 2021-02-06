@@ -24,8 +24,14 @@ router bgp 64444
   network 10.0.23.0/24
   network 10.0.24.0/24
   network 10.0.26.0/24
-  neighbor 10.0.24.1 next-hop-self
+  neighbor 10.0.23.2 route-map punto3weight in
  exit-address-family
+!
+access-list 1 seq 5 permit 10.0.29.0/28
+!
+route-map punto3weight permit 10
+ match ip address 1
+ set weight 55
 !
 line vty
 !

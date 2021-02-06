@@ -24,8 +24,15 @@ router bgp 64444
   network 10.0.22.0/24
   network 10.0.24.0/24
   network 10.0.25.0/24
-  neighbor 10.0.25.1 next-hop-self
+  neighbor 10.0.22.2 route-map punto3 in
  exit-address-family
+!
+access-list 3 seq 10 deny any
+access-list 3 seq 5 permit 10.0.29.0/28
+!
+route-map punto3 permit 10
+ match ip address 3
+ set local-preference 110
 !
 line vty
 !
