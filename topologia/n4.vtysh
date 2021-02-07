@@ -18,6 +18,7 @@ router-id 10.0.0.2
 !
 router bgp 65032
  neighbor 10.0.0.1 remote-as 64590
+ neighbor 10.0.27.2 remote-as 64444
  neighbor 10.0.50.2 remote-as 65032
  neighbor 10.0.51.2 remote-as 65032
  !

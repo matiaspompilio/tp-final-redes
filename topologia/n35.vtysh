@@ -25,10 +25,14 @@ router bgp 64444
   network 10.0.24.0/24
   network 10.0.25.0/24
   neighbor 10.0.22.2 route-map punto3 in
+  neighbor 10.0.22.2 route-map prepend out
  exit-address-family
 !
 access-list 3 seq 10 deny any
 access-list 3 seq 5 permit 10.0.29.0/28
+!
+route-map prepend permit 10
+ set as-path prepend 64444 64444 64444 64444 64444
 !
 route-map punto3 permit 10
  match ip address 3

@@ -19,6 +19,7 @@ interface eth3
 !
 router bgp 64447
  neighbor 10.0.18.1 remote-as 64449
+ neighbor 10.0.21.2 remote-as 64445
  neighbor 10.0.52.1 remote-as 64448
  !
  address-family ipv4 unicast
