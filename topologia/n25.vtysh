@@ -24,7 +24,6 @@ router bgp 64448
   neighbor 10.0.52.2 route-map localonly out
  exit-address-family
 !
-bgp as-path access-list 3 deny .*
 bgp as-path access-list 3 permit ^$
 !
 route-map localonly permit 10

@@ -5,6 +5,8 @@ hostname n8
 log syslog informational
 service integrated-vtysh-config
 !
+ip route 192.168.101.0/24 10.0.18.3
+!
 interface eth0
  ip address 10.0.12.2/24
 !
@@ -24,7 +26,8 @@ router bgp 64449
  !
  address-family ipv4 unicast
   network 10.0.15.0/24
-  network 192.168.101.0/24
+  redistribute static
+  neighbor 10.0.13.2 next-hop-self
  exit-address-family
 !
 line vty
