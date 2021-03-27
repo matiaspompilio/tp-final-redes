@@ -24,7 +24,6 @@ router bgp 65032
  !
  address-family ipv4 unicast
   network 10.0.7.0/24
-  redistribute ospf
   neighbor 10.0.50.1 next-hop-self
   neighbor 10.0.51.1 next-hop-self
  exit-address-family

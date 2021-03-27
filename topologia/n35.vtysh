@@ -20,12 +20,10 @@ router bgp 64444
  neighbor 10.0.25.1 remote-as 64444
  !
  address-family ipv4 unicast
-  network 10.0.0.0/8
-  network 10.0.22.0/24
-  network 10.0.24.0/24
-  network 10.0.25.0/24
   neighbor 10.0.22.2 route-map punto3 in
   neighbor 10.0.22.2 route-map prepend out
+  neighbor 10.0.24.2 next-hop-self
+  neighbor 10.0.25.1 next-hop-self
  exit-address-family
 !
 access-list 3 seq 10 deny any

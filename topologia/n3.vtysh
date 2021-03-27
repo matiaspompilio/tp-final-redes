@@ -24,9 +24,6 @@ router bgp 65530
  !
  address-family ipv4 unicast
   network 10.0.8.0/24
-  redistribute connected
-  redistribute static
-  redistribute ospf
   neighbor 10.0.1.1 prefix-list filtrado_n2 in
  exit-address-family
 !

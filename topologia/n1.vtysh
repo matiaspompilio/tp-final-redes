@@ -16,7 +16,6 @@ router bgp 64590
  !
  address-family ipv4 unicast
   network 163.10.0.0/16
-  redistribute static
  exit-address-family
 !
 line vty

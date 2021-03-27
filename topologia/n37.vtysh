@@ -20,10 +20,8 @@ router bgp 64444
  neighbor 10.0.27.1 remote-as 65032
  !
  address-family ipv4 unicast
-  network 10.0.0.0/8
-  network 10.0.25.0/24
-  network 10.0.26.0/24
-  network 10.0.27.0/24
+  neighbor 10.0.25.2 next-hop-self
+  neighbor 10.0.26.1 next-hop-self
  exit-address-family
 !
 line vty
