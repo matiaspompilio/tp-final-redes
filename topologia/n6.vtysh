@@ -23,6 +23,10 @@ interface eth4
 interface eth5
  ip address 10.0.17.1/24
 !
+interface eth6
+ ip address 10.0.3.1/24
+ ipv6 address 2001::1/64
+!
 router bgp 64450
  neighbor 10.0.4.1 remote-as 65530
  neighbor 10.0.5.1 remote-as 65032
@@ -35,6 +39,13 @@ router bgp 64450
   neighbor 10.0.11.2 route-map n7 out
   neighbor 10.0.12.2 route-map n8 out
  exit-address-family
+ !
+ bmp mirror buffer-limit 0
+ !
+ bmp targets openbmp
+  bmp stats interval 100
+  bmp mirror
+  bmp connect 10.0.2.2 port 5000 min-retry 100 max-retry 1000
 !
 route-map n7 permit 10
  set metric 300
