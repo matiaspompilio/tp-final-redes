@@ -7,6 +7,7 @@
 5. Kill bgp in router and re-run with `-M bmp` option added (This step will delete the bgp configuration)
 6. Restore topology configuration with restore.sh script
 7. Run openbmp all in one
+8. Route node to bmp collector (Step to follow below)
 
 
 ### Run openbmp All in one
@@ -33,7 +34,11 @@ host>> ip add add <new-ip/mask> dev <paste-dev-name>
 
 host>> iptables -t nat -A POSTROUTING -j MASQUERADE
 host>> echo 1 > /proc/sys/net/ipv4/ip_forward
+```
 
+### Route node to bmp collector
+
+``` 
 #routing node (necessary for routing to openbmp collector)
 core-router>>ip route add <ip> via <new-ip-host>
 ```
