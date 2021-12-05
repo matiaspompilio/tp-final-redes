@@ -24,5 +24,5 @@ host>> iptables -t nat -A POSTROUTING -j MASQUERADE
 host>> echo 1 > /proc/sys/net/ipv4/ip_forward
 
 #routing node (necessary for routing to openbmp collector)
-core-node>>ip route add <ip> via <gw-to-rj45>
+core-node>>ip route add <ip> via <new-ip-host>
 ```
