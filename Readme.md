@@ -4,7 +4,7 @@
 2. Create the RJ45 connection (TODO create new topology file with RJ45 added)
 3. Connect COREEMU to host machine. (Steps to follow below)
 4. Run the COREEMU
-5. Kill bgp in router and re-run with `-M bmp` option added
+5. Kill bgp in router and re-run with `-M bmp` option added (This step will delete the bgp configuration)
 6. Restore topology configuration with restore.sh script
 7. Run openbmp all in one
 
