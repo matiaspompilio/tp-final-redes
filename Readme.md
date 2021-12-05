@@ -20,8 +20,8 @@ host>> ip link add dummy type dummy
 host>> brctl show
 host>> ip add add <new-ip/mask> dev <paste-dev-name>
 
-host>> ip tables -t nat -A POSTROUTING -j MASQUERADE
-host>> echo 1> /proc/sys/net/ipv4/ip_forward
+host>> iptables -t nat -A POSTROUTING -j MASQUERADE
+host>> echo 1 > /proc/sys/net/ipv4/ip_forward
 
 #routing node (necessary for routing to openbmp collector)
 core-node>>ip route add <ip> via <gw-to-rj45>
